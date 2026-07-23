@@ -3,107 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Panel de Control Pro</title>
-    <!-- Cargamos Tailwind CSS -->
-    <script src="https://jsdelivr.net"></script>
-    <!-- Cargamos la librería Chart.js de forma segura (UMD) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.js"></script>
+    <title>Leo Pro VPN</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="assets/logo.png">
 </head>
-<body class="bg-gray-100 font-sans">
 
-    <div class="flex h-screen">
-        <!-- Barra lateral -->
-        <div class="w-64 bg-indigo-900 text-white p-6 hidden md:block">
-            <h1 class="text-2xl font-bold mb-8">AdminPanel</h1>
-            <nav class="space-y-4">
-                <a href="#" class="block py-2.5 px-4 rounded bg-indigo-800">Inicio</a>
-                <a href="#" class="block py-2.5 px-4 rounded hover:bg-indigo-700 transition">Usuarios</a>
-                <a href="#" class="block py-2.5 px-4 rounded hover:bg-indigo-700 transition">Reportes</a>
-            </nav>
-        </div>
+<body>
 
-        <!-- Contenido Principal -->
-        <div class="flex-1 flex flex-col overflow-hidden">
-            <!-- Barra superior -->
-            <header class="bg-white shadow-sm p-4 flex justify-between items-center">
-                <h2 class="text-xl font-semibold text-gray-800">Panel Principal</h2>
-                <div class="flex items-center space-x-4">
-                    <span class="text-gray-600 font-medium">Hola, Leonardo</span>
-                </div>
-            </header>
+<header>
 
-            <!-- Contenedor general -->
-            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
-                <!-- Cuadrícula de Tarjetas -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
-                        <p class="text-sm font-medium text-gray-500 uppercase">Visitas Hoy</p>
-                        <p id="visitas" class="text-3xl font-bold text-gray-800">1,240</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
-                        <p class="text-sm font-medium text-gray-500 uppercase">Ventas Mensuales</p>
-                        <p class="text-3xl font-bold text-gray-800">$12,450</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-500">
-                        <p class="text-sm font-medium text-gray-500 uppercase">Rendimiento API</p>
-                        <p class="text-3xl font-bold text-green-500">99.9%</p>
-                    </div>
-                </div>
-
-                <!-- SECCIÓN NUEVA: El Gráfico Estadístico -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Rendimiento de Ventas Anuales</h3>
-                    <div class="relative w-full h-80">
-                        <canvas id="graficoVentas"></canvas>
-                    </div>
-                </div>
-            </main>
-        </div>
+    <div class="logo">
+        <img src="assets/logo.png" alt="Leo Pro VPN">
+        <h2>Leo Pro VPN</h2>
     </div>
 
-    <!-- Lógica JavaScript -->
-    <script>
-        // 1. Simulación de visitas en tiempo real
-        setInterval(() => {
-            const numeroVisitas = document.getElementById('visitas');
-            const actual = parseInt(numeroVisitas.innerText.replace(',', ''));
-            const nuevo = actual + Math.floor(Math.random() * 10);
-            numeroVisitas.innerText = nuevo.toLocaleString();
-        }, 3000);
+    <nav>
 
-        // 2. Creación y renderizado del Gráfico
-        const ctx = document.getElementById('graficoVentas').getContext('2d');
-        const miGrafico = new Chart(ctx, {
-            type: 'bar', // Tipo de gráfico base (Barras)
-            data: {
-                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                datasets: [{
-                    label: 'Ventas ($)',
-                    data: [5000, 7000, 6200, 9500, 11000, 12450, 14000, 13500, 15200, 16100, 18400, 21000],
-                    backgroundColor: 'rgba(79, 70, 229, 0.6)', // Color índigo transparente para las barras
-                    borderColor: 'rgb(79, 70, 229)',
-                    borderWidth: 1
-                }, {
-                    label: 'Meta Proyectada',
-                    data: [6000, 6500, 7000, 8000, 9000, 11000, 12000, 13000, 14000, 15000, 17000, 19000],
-                    type: 'line', // Convertimos este dataset específico en una línea interactiva
-                    borderColor: 'rgb(234, 179, 8)', // Color amarillo para la línea
-                    backgroundColor: 'transparent',
-                    borderWidth: 3,
-                    tension: 0.3 // Curvatura suave de la línea
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+        <a href="login.html">Iniciar sesión</a>
+
+        <a href="register.html">Registrarse</a>
+
+        <a href="download.html">Descargar App</a>
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Conexión segura.<br>
+            Velocidad sin límites.
+        </h1>
+
+        <p>
+
+            Servidores Premium para Android,
+            Android TV y Windows.
+
+        </p>
+
+        <div class="buttons">
+
+            <a href="register.html" class="btn blue">
+                Crear Cuenta
+            </a>
+
+            <a href="download.html" class="btn">
+                Descargar APK
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="status">
+
+<h2>
+
+Estado de los Servidores
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+🟢 Argentina Premium
+
+<p>Online</p>
+
+</div>
+
+<div class="card">
+
+🟢 Brasil Premium
+
+<p>Online</p>
+
+</div>
+
+<div class="card">
+
+🟢 Estados Unidos
+
+<p>Online</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="features">
+
+<h2>
+
+¿Por qué Leo Pro VPN?
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+🚀 Alta velocidad
+
+</div>
+
+<div class="card">
+
+🔒 Seguridad
+
+</div>
+
+<div class="card">
+
+🌎 Servidores Premium
+
+</div>
+
+<div class="card">
+
+⚡ Baja Latencia
+
+</div>
+
+<div class="card">
+
+📱 Android y TV
+
+</div>
+
+<div class="card">
+
+💎 Actualizaciones Automáticas
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="news">
+
+<h2>
+
+Noticias
+
+</h2>
+
+<div class="news-card">
+
+Nueva versión disponible.
+
+Mejoras en velocidad y estabilidad.
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<p>
+
+© 2026 Leo Pro VPN
+
+Todos los derechos reservados.
+
+</p>
+
+</footer>
+
+<script src="js/app.js"></script>
+
 </body>
 </html>
-
