@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Panel de Control</title>
+    <!-- Cargamos Tailwind CSS para el diseño -->
+    <script src="https://jsdelivr.net"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="flex h-screen">
+        <!-- Barra lateral -->
+        <div class="w-64 bg-indigo-900 text-white p-6 hidden md:block">
+            <h1 class="text-2xl font-bold mb-8">AdminPanel</h1>
+            <nav class="space-y-4">
+                <a href="#" class="block py-2.5 px-4 rounded bg-indigo-800">Inicio</a>
+                <a href="#" class="block py-2.5 px-4 rounded hover:bg-indigo-700 transition">Usuarios</a>
+                <a href="#" class="block py-2.5 px-4 rounded hover:bg-indigo-700 transition">Reportes</a>
+            </nav>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Barra superior -->
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                <h2 class="text-xl font-semibold text-gray-800">Panel Principal</h2>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-600 font-medium">Hola, Administrador</span>
+                </div>
+            </header>
+
+            <!-- Cuadrícula de Tarjetas -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    <!-- Tarjeta 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                        <p class="text-sm font-medium text-gray-500 uppercase">Visitas Hoy</p>
+                        <p id="visitas" class="text-3xl font-bold text-gray-800">1,240</p>
+                    </div>
+                    <!-- Tarjeta 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+                        <p class="text-sm font-medium text-gray-500 uppercase">Ventas Mensuales</p>
+                        <p class="text-3xl font-bold text-gray-800">$12,450</p>
+                    </div>
+                    <!-- Tarjeta 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-500">
+                        <p class="text-sm font-medium text-gray-500 uppercase">Rendimiento API</p>
+                        <p class="text-3xl font-bold text-green-500">99.9%</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Lógica de actualización de datos en tiempo real -->
+    <script>
+        // Simula la actualización de datos cada 3 segundos
+        setInterval(() => {
+            const numeroVisitas = document.getElementById('visitas');
+            const actual = parseInt(numeroVisitas.innerText.replace(',', ''));
+            const nuevo = actual + Math.floor(Math.random() * 10);
+            numeroVisitas.innerText = nuevo.toLocaleString();
+        }, 3000);
+    </script>
+</body>
+</html>
